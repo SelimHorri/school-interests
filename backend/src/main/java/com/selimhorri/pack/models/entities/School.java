@@ -50,7 +50,7 @@ public final class School implements Serializable {
 	
 	@Override
 	public String toString() {
-		return "School [schoolId=" + schoolId + ", schoolName=" + schoolName + ", schoolAdr=" + schoolAdr + "]";
+		return "SchoolRestController [schoolId=" + schoolId + ", schoolName=" + schoolName + ", schoolAdr=" + schoolAdr + "]";
 	}
 	
 	public Integer getSchoolId() {

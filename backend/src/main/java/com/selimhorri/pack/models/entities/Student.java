@@ -1,6 +1,7 @@
 package com.selimhorri.pack.models.entities;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "students")
@@ -28,6 +31,10 @@ public final class Student implements Serializable {
 	
 	@Column(name = "last_name")
 	private String lastName;
+	
+	@DateTimeFormat(pattern = "dd-MM-yyyy")
+	@Column(name = "enter_date")
+	private LocalDate enterDate;
 	
 	@Column(name = "email")
 	private String email;
@@ -88,6 +95,14 @@ public final class Student implements Serializable {
 	
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+	
+	public LocalDate getEnterDate() {
+		return enterDate;
+	}
+	
+	public void setEnterDate(LocalDate enterDate) {
+		this.enterDate = enterDate;
 	}
 	
 	public String getEmail() {
