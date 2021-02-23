@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.selimhorri.pack.converters.StudentConverter;
+import com.selimhorri.pack.exceptions.wrappers.StudentNotFoundException;
 import com.selimhorri.pack.models.dto.StudentDto;
 import com.selimhorri.pack.models.entities.Student;
 import com.selimhorri.pack.repositories.StudentRepository;
@@ -33,7 +34,7 @@ public class StudentServiceImpl implements StudentService {
 	
 	@Override
 	public Student findById(final Integer studentId) {
-		return this.rep.findById(studentId).orElseThrow();
+		return this.rep.findById(studentId).orElseThrow(() -> new StudentNotFoundException("########## School not found ##########"));
 	}
 	
 	@Override
