@@ -22,7 +22,7 @@ export class SchoolService {
   }
   
   public findById(schoolId: number): Observable<School> {
-    return this.http.get<School>(this.apiUrl + schoolId);
+    return this.http.get<School>(this.apiUrl + "/" + schoolId);
   }
   
   public save(school: School): Observable<School> {
