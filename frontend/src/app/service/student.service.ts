@@ -15,8 +15,8 @@ export class StudentService {
     this.apiUrl = this.apiUrl + "/students";
   }
   
-  public findAll(): Observable<Student> {
-    return this.http.get<Student>(this.apiUrl);
+  public findAll(): Observable<Student[]> {
+    return this.http.get<Student[]>(this.apiUrl);
   }
   
   public findById(studentId: number): Observable<Student> {
