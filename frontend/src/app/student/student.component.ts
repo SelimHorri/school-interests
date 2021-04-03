@@ -10,6 +10,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class StudentComponent implements OnInit {
   
+  public students: Student[];
   public student: Student;
   
   constructor(private studentService: StudentService) {
@@ -17,10 +18,21 @@ export class StudentComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    this.findById(1);
+    this.findAll();
   }
   
-  public findById(studentId: number) {
+  public findAll() : void {
+    this.studentService.findAll().subscribe(
+      (students: Student[]) => {
+        this.students = students;
+      },
+      (error: HttpErrorResponse) => {
+        console.log(error.message);
+      }
+    );
+  }
+  
+  public findById(studentId: number) : void {
     this.studentService.findById(studentId).subscribe(
       (student: Student) => {
         this.student = student;
