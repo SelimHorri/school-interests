@@ -32,6 +32,9 @@ public final class Student implements Serializable {
 	@Column(name = "last_name")
 	private String lastName;
 	
+	@Column(name = "image_url")
+	private String imageUrl;
+	
 	@DateTimeFormat(pattern = "dd-MM-yyyy")
 	@Column(name = "enter_date")
 	private LocalDate enterDate;
@@ -97,6 +100,14 @@ public final class Student implements Serializable {
 		this.lastName = lastName;
 	}
 	
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
 	public LocalDate getEnterDate() {
 		return enterDate;
 	}
